@@ -2,7 +2,7 @@ import sys
 
 
 from pathlib import Path
-from ssg import Extensions
+from ssg import extensions
 
 class Site:
     def __init__(self, source, dest, parsers=None):
