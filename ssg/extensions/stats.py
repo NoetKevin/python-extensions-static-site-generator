@@ -15,12 +15,13 @@ def start_build():
 
 @stats.register("written")
 def written():
-    global total_written 
+    global total_written
     total_written += 1
 
 @stats.register("stats")
 def stats():
     global start_time
+    global total_written
     final_time = time() - start_time
     average = if total_written != 0 : final_time / total_written
     report = "Converted: {} · Time: {:.2f} sec · Avg: {:.4f} sec/file"
