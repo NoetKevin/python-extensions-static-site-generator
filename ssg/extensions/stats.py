@@ -15,7 +15,7 @@ def start_build():
 
 @stats.register("written")
 def written():
-    global total_written *
+    global total_written 
     total_written += 1
 
 @stats.register("stats")
