@@ -7,22 +7,22 @@ from ssg import hooks
 start_time = None
 total_written = 0
 
-@stats.register("start_build")
+@hooks.register("start_build")
 def start_build():
     global start_time
     time = time()
 
 
-@stats.register("written")
+@hooks.register("written")
 def written():
     global total_written
     total_written += 1
 
-@stats.register("stats")
+@hooks.register("stats")
 def stats():
     global start_time
     global total_written
     final_time = time() - start_time
-    average = final_time / total_written if total_written else 0 
+    average = final_time / total_written if total_written else 0
     report = "Converted: {} · Time: {:.2f} sec · Avg: {:.4f} sec/file"
     print (report.format(total_written, final_time, average))
